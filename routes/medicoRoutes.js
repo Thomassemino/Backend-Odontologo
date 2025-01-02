@@ -27,6 +27,6 @@ medicoRouter.route("/deleteByUser/:user").delete(medicoController.deleteByUser);
 medicoRouter.route("/").get(medicoController.getAllMedicos); 
 
 // Ruta para actualizar un médico por Id
-medicoRouter.route("/updateById/:id").put(medicoController.updateById);
+medicoRouter.route("/updateById/:id").put(medicoController.actualizarMedico);
 
 module.exports = medicoRouter;

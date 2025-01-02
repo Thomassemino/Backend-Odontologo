@@ -16,7 +16,7 @@ pacienteRouter.route("/findById/:Id").get(pacienteController.findById
 );
 
 // Ruta para actualizar un paciente por Idd
-pacienteRouter.route("/updateById/:Id").put(pacienteController.updateById);
+pacienteRouter.route("/updateById/:Id").put(pacienteController.actualizarPaciente);
 
 
 // Ruta para eliminar un paciente por nombre
