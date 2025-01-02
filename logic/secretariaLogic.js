@@ -32,9 +32,13 @@ async function deleteByName(request) {
     }
 }
 
+async function actualizarSecretaria(id, data) {
+  return await SecretariaSchema.findByIdAndUpdate(id, data, { new: true });
+}
 
 module.exports = {
   create,
   deleteByName,
-  findByName
+  findByName,
+  actualizarSecretaria
 };

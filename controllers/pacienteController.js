@@ -40,6 +40,19 @@ const findByDni = async (req, res) => {
 };
 
 
+const findById = async (req, res) => {
+    try {
+        const paciente = await PacienteLogic.findById(req);
+        if (!paciente) {
+            return res.status(404).json({ status: 'error', message: 'Paciente no encontrado' });
+        }
+        res.status(200).json({ paciente: paciente });
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({ status: 'error', message: err.message });
+    }
+};
+
 // Controlador para eliminar un paciente por usuario
 const deleteByName = async (req, res) => {
     try {
@@ -61,10 +74,23 @@ const getAll = async (req, res) => {
     }
 };
 
+
+async function actualizarPaciente(req, res) {
+    try {
+      const { id } = req.params;
+      const paciente = await PacienteLogic.actualizarPaciente(id, req.body);
+      res.status(200).json(empresa);
+    } catch (error) {
+      res.status(500).json({ error: 'Error al actualizar el paciente', detalle: error.message });
+    }
+  }
+
 module.exports = {
     addPaciente,
     findByName,
     findByDni,
+    findById,
     deleteByName,
-    getAll
+    getAll,
+    actualizarPaciente
 };

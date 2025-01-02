@@ -36,8 +36,19 @@ const deleteByName = async (req, res) => {
     }
 };
 
+async function actualizarSecretaria(req, res) {
+    try {
+      const { id } = req.params;
+      const secretaria = await SecretariaLogic.actualizarSecretaria(id, req.body);
+      res.status(200).json(empresa);
+    } catch (error) {
+      res.status(500).json({ error: 'Error al actualizar la secretaria', detalle: error.message });
+    }
+  }
+
 module.exports = {
     create,
     deleteByName,
-    findByName
+    findByName,
+    actualizarSecretaria
 };

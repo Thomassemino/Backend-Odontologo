@@ -66,6 +66,10 @@ async function getAllMedicos() {
   }
 }
 
+async function actualizarMedico(id, data) {
+  return await MedicoSchemaSchema.findByIdAndUpdate(id, data, { new: true });
+}
+
 module.exports = {
   create,
   findByEmail,
@@ -74,5 +78,6 @@ module.exports = {
   findByEspecialidad,
   findByMatricula,
   deleteByUser,
-  getAllMedicos
+  getAllMedicos,
+  actualizarMedico
 };

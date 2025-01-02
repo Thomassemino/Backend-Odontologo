@@ -11,6 +11,13 @@ pacienteRouter.route("/findByName/:nombre").get(pacienteController.findByName);
 // Ruta para buscar un paciente por Dni
 pacienteRouter.route("/findByDni/:dni").get(pacienteController.findByDni);
 
+// Ruta para buscar un paciente por Dni
+pacienteRouter.route("/findById/:Id").get(pacienteController.findById
+);
+
+// Ruta para actualizar un paciente por Idd
+pacienteRouter.route("/updateById/:Id").put(pacienteController.updateById);
+
 
 // Ruta para eliminar un paciente por nombre
 pacienteRouter.route("/deleteByName/:nombre").delete(pacienteController.deleteByName);

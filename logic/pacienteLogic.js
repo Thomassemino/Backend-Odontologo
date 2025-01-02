@@ -35,7 +35,13 @@ async function findByDni(request) {
     return await PacienteSchema.findOne({ dni: request.params.dni });
 }
 
+async function findById(request) {
+  return await PacienteSchema.findOne({  _id: request.params.id});
+}
 
+async function actualizarPaciente(id, data) {
+  return await PacienteSchema.findByIdAndUpdate(id, data, { new: true });
+}
 
 
 async function deleteByName(request) {
@@ -64,5 +70,6 @@ module.exports = {
   findByName,
   deleteByName,
   findByDni,
-  getAll
+  getAll,
+  actualizarPaciente
 };
